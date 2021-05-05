@@ -78,7 +78,6 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
             @Override
             public void onDoubleClick(View v) {
-                Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show();
                 viewHolder.heartImage.setImageResource(R.drawable.like);
                 String count = viewHolder.like.getText().toString();
                 int increment = Integer.parseInt(count);
