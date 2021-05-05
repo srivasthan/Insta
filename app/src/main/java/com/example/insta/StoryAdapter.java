@@ -63,9 +63,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
         Picasso.get()
                 .load(im)
-                .resize(300,300).into(viewHolder.normalImageView);
+                .into(viewHolder.normalImageView);
 
-       // Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.normalImageView);
+        // Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.normalImageView);
         viewHolder.body.setText(movies.get(i).getTitle());
 
         viewHolder.normalImageView.setOnClickListener(new DoubleClickListener() {
@@ -79,16 +79,17 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
             @Override
             public void onDoubleClick(View v) {
                 viewHolder.heartImage.setImageResource(R.drawable.like);
-                String count = viewHolder.like.getText().toString();
-                int increment = Integer.parseInt(count);
-                increment = increment + 1;
-                viewHolder.like.setText(String.valueOf(increment));
-             //   Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.imageView);
                 viewHolder.normalImageView.setVisibility(View.GONE);
                 viewHolder.imageView.setVisibility(View.VISIBLE);
                 Picasso.get()
                         .load(im)
-                        .resize(300,300).into(viewHolder.imageView);
+                        .into(viewHolder.imageView);
+                String count = viewHolder.like.getText().toString();
+                int increment = Integer.parseInt(count);
+                increment = increment + 1;
+                viewHolder.like.setText(String.valueOf(increment));
+                //   Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.imageView);
+
             }
         });
 
