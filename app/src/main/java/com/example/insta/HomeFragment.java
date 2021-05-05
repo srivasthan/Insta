@@ -1,4 +1,4 @@
-package com.example.insta.home;
+package com.example.insta;
 
 import android.content.Context;
 import android.os.Bundle;
