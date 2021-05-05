@@ -75,17 +75,12 @@
                 android:id="@+id/media_post"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:adjustViewBounds="true"
-                android:visibility="gone"
-                android:scaleType="fitCenter"
-                android:src="@drawable/nature" />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/normal_img"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/nature" />
+                android:layout_height="300dp" />
 
         </RelativeLayout>
 

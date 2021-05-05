@@ -12,7 +12,7 @@ import static android.R.id.list;
 
 
 public interface Service {
-    @GET("/posts")
+    @GET("/photos")
     Call<List<Photo>> getPhto();
 }
 

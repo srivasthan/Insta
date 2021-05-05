@@ -1,6 +1,8 @@
 package com.example.insta;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,9 @@ import com.github.chrisbanes.photoview.PhotoView;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -54,6 +59,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull StoryAdapter.ViewHolder viewHolder, int i) {
 
+        String im = movies.get(i).getUrl();
+
+        Picasso.get()
+                .load(im)
+                .resize(300,300).into(viewHolder.normalImageView);
+
+       // Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.normalImageView);
         viewHolder.body.setText(movies.get(i).getTitle());
 
         viewHolder.normalImageView.setOnClickListener(new DoubleClickListener() {
@@ -72,12 +84,15 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
                 int increment = Integer.parseInt(count);
                 increment = increment + 1;
                 viewHolder.like.setText(String.valueOf(increment));
+             //   Glide.with(context).load(movies.get(i).getUrl()).into(viewHolder.imageView);
                 viewHolder.normalImageView.setVisibility(View.GONE);
                 viewHolder.imageView.setVisibility(View.VISIBLE);
+                Picasso.get()
+                        .load(im)
+                        .resize(300,300).into(viewHolder.imageView);
             }
         });
 
-        //Glide.with(context).load(movies.get(i).getThumbnailUrl()).into(viewHolder.imageView);
 
     }
 
